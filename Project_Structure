@@ -1,0 +1,32 @@
+
+doctor_sathi/
+│
+├── data/
+│   ├── raw/                         # Raw datasets (original CSVs, etc.)
+│   │   └── Symptom2Disease.csv
+│   ├── processed/                   # Cleaned and preprocessed data
+│   │   └── preprocessed_dataset.csv
+│   └── embeddings/
+│       └── BioWordVec_PubMed_MIMICIII_d200.vec.bin
+│
+├── dataPreprocessing/
+│   └── dataPreprocessing.ipynb      # EDA and initial cleaning
+│
+├── models/
+│   └── doctor_sathi_model.pkl       # Saved model (pickle/joblib)
+│
+├── src/
+│   ├── __init__.py
+│   ├── data_loader.py               # Functions to load and clean data
+│   ├── embedding_utils.py           # Load BioWordVec & embed symptoms
+│   ├── train_model.py               # Train and evaluate model
+│   ├── predict.py                   # Predict from symptom input
+│   └── utils.py                     # Helper functions
+│
+├── app/
+│   ├── cli.py                       # Command-line interface
+│   └── web_app.py                   # (Optional) Flask/Streamlit app
+│
+├── requirements.txt                 # Python dependencies
+├── README.md                        # Project overview and instructions
+└── config.yaml                      # Configs like paths, model params
