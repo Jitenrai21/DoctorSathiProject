@@ -5,6 +5,8 @@ import ast
 import numpy as np
 import pandas as pd
 from gensim.models import KeyedVectors
+from sklearn.preprocessing import LabelEncoder
+import joblib
 
 def get_project_root():
     """Get the parent directory of 'src'."""
@@ -42,3 +44,14 @@ def save_data(df, save_path):
     """Save dataframe to CSV."""
     df.to_csv(save_path, index=False)
     print(f"Embedded dataset saved at {save_path}")
+
+def encode_labels(df, label_column):
+    """Encode the label column and return updated df and the label encoder."""
+    le = LabelEncoder()
+    df[label_column + '_encoded'] = le.fit_transform(df[label_column])
+    return df, le
+
+def save_label_encoder(encoder, path):
+    """Save the label encoder object for future use."""
+    joblib.dump(encoder, path)
+    print(f"Label encoder saved at {path}")
