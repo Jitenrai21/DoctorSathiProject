@@ -1,5 +1,3 @@
-# src/utils.py
-
 import os
 import ast
 import numpy as np
@@ -7,6 +5,8 @@ import pandas as pd
 from gensim.models import KeyedVectors
 from sklearn.preprocessing import LabelEncoder
 import joblib
+import pickle
+
 
 def get_project_root():
     """Get the parent directory of 'src'."""
@@ -55,3 +55,30 @@ def save_label_encoder(encoder, path):
     """Save the label encoder object for future use."""
     joblib.dump(encoder, path)
     print(f"Label encoder saved at {path}")
+
+def save_pickle(obj, path):
+    """
+    Saves a Python object to a given path using pickle.
+    
+    Args:
+        obj: Python object to save
+        path (str): Target file path to save
+    """
+    with open(path, 'wb') as f:
+        pickle.dump(obj, f)
+    print(f"Object saved at {path}")
+
+def load_pickle(path):
+    """
+    Loads a Python object from a pickle file.
+    
+    Args:
+        path (str): Path to the pickle file
+        
+    Returns:
+        Loaded Python object
+    """
+    with open(path, 'rb') as f:
+        obj = pickle.load(f)
+    print(f"Object loaded from {path}")
+    return obj

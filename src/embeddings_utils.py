@@ -23,8 +23,8 @@ def main():
 
     # Apply embeddings
     df_cleaned['symptom_vector'] = df_cleaned['symptom_tokens'].apply(
-        lambda x: embed_symptoms(x, bio_word_vec)
-    )
+    lambda x: embed_symptoms(x, bio_word_vec).tolist()
+)
 
     # Save the embedded dataset
     save_data(df_cleaned, embedded_data_path)

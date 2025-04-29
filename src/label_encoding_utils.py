@@ -6,7 +6,7 @@ from utils import (
     load_data,
     encode_labels,
     save_data,
-    save_label_encoder
+    save_pickle
 )
 
 def main():
@@ -28,7 +28,8 @@ def main():
 
     # Save the label encoder
     os.makedirs(os.path.dirname(label_encoder_path), exist_ok=True)
-    save_label_encoder(label_encoder, label_encoder_path)
+    save_pickle(label_encoder, label_encoder_path)  # Save the FULL label_encoder object!
+
 
 if __name__ == "__main__":
     main()
