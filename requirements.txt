@@ -4,3 +4,4 @@ gensim
 scikit-learn
 matplotlib
 imbalanced-learn
+xgboost
