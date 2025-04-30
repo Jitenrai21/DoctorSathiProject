@@ -3,3 +3,4 @@ pandas
 gensim
 scikit-learn
 matplotlib
+imbalanced-learn
