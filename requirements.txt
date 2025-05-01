@@ -5,3 +5,6 @@ scikit-learn
 matplotlib
 imbalanced-learn
 xgboost
+keras
+tensorflow
+seaborn
